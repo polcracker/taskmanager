@@ -28,7 +28,7 @@ class Processor(object):
         self.onlyFirst = False
 
     def getProcess(self, process, isLast=False):
-        if process:
+        if process and process.status != 5:
             process.status = 4  # set finish status
         MAIN_MUTEX.acquire()
         try:
@@ -73,6 +73,10 @@ class Processor(object):
             NEW_TASK_MUTEX.release()
 
     def firstProcess(self):
+        if self.firstThread and self.firstThread.eventError.is_set():
+            self.firstThread.eventFinish.set()
+            self.firstThread.status = 5
+
         self.sjfFinishThreadEvent.wait()  # wait current executed thread
         if self.firstThread and not self.firstThread.eventFinish.isSet():
             self.firstThread.status = 2
@@ -95,6 +99,10 @@ class Processor(object):
                 self.waitNewProcess()
 
     def lastProcess(self):
+        if self.lastThread and self.lastThread.eventError.is_set():
+            self.lastThread.eventFinish.set()
+            self.lastThread.status = 5
+
         self.sjfFinishThreadEvent.wait()  # wait current executed thread
         if self.lastThread and not self.lastThread.eventFinish.isSet():
             self.lastThread.status = 2

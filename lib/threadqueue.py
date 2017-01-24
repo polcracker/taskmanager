@@ -97,13 +97,13 @@ class CThreadQueue(object):
     def changeStatus(self, checkFinished=False):
         if checkFinished:
             for x in self.data:
-                if x.eventFinish.isSet():
+                if x.eventFinish.isSet() and x.status != 5:
                     x.status = 4
         else:
             for x in self.data[self.pos:]:
                 if x.status not in [4, 2, 5]:  # and not (x['status'] == 1 and x['processor'] == '- none -'):
                     x.status = 3
-                elif x.eventFinish.isSet():
+                elif x.eventFinish.isSet() and x.status != 5:
                     x.status = 4
 
     def removeFinished(self):

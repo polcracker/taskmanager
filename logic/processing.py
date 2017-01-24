@@ -10,6 +10,7 @@ class Process(object):
             processor='',
             eventStart=None,
             eventFinish=None,
+            eventError=None,
             priority=0,
             status=3,  # 1,
             time=4,
@@ -20,6 +21,7 @@ class Process(object):
         self.processor = processor
         self.eventStart = eventStart
         self.eventFinish = eventFinish
+        self.eventError = eventError
         self.priority = priority
         self.status = status
         self.time = time

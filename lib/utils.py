@@ -29,12 +29,13 @@ def createProcess(name, target, priority=1, time=4, resources=list()):
         name=name,
         eventFinish=Event(),
         eventStart=Event(),
+        eventError=Event(),
         priority=priority,
         time=time,
         resources=resources
     )
     task.thread = Thread(
         target=target,
-        args=(name, task.eventStart, task.eventFinish, time)
+        args=(name, task.eventStart, task.eventFinish, task.eventError, time)
     )
     return task

@@ -92,8 +92,8 @@ class CTaskManager(QtGui.QDialog, Ui_MainDialog):
                 [x.text() for x in dlg.lstAvailableResources.selectedItems()]
             )
 
-            if x.time >= 40:
-                x.status = 5
+            # if x.time >= 40:
+            #    x.status = 5
 
             self.queue.push(x)
             self.queue.startPlanning()

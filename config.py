@@ -5,7 +5,7 @@ from multiprocessing import Lock
 
 from PyQt4 import QtGui, QtCore
 
-VERSION = 'v0.6.1'
+VERSION = 'v0.7.0'
 
 
 MAIN_MUTEX = Lock()
@@ -35,6 +35,8 @@ TASK_STATUS = [
 ]
 
 RESOURCES_OWNERSHIP_PERCENT = 0.5
+
+ERROR_TIME = 4  # максимульное допустимое время
 
 DEFAULT_TASK_NAME = u'Процесс #%s'
 DEFAULT_PROCESSOR_NAME = u'Ядро #%s'
