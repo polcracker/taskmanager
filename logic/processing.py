@@ -7,7 +7,7 @@ class Process(object):
             self,
             thread=None,
             name='none',
-            processor='- none -',
+            processor='',
             eventStart=None,
             eventFinish=None,
             priority=0,

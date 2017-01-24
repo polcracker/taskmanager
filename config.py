@@ -37,7 +37,7 @@ TASK_STATUS = [
 RESOURCES_OWNERSHIP_PERCENT = 0.5
 
 DEFAULT_TASK_NAME = u'Процесс #%s'
-DEFAULT_PROCESSOR_NAME = u'Процессор #%s'
+DEFAULT_PROCESSOR_NAME = u'Ядро #%s'
 DEFAULT_PRIORITY_COLOR =[
     QtGui.QColor(QtCore.Qt.red),        # 0
     QtGui.QColor(QtCore.Qt.blue),       # 1

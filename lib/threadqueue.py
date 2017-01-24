@@ -37,7 +37,7 @@ class CThreadQueue(object):
 
     def checkResources(self, element):
         for x in self.data:
-            if x.processor != '- none -' and x.status in [2, 3]:
+            if x.processor != '' and x.status in [2, 3]:
                 for y in element.resources:
                     if y in x.resources:
                         return False
@@ -47,7 +47,7 @@ class CThreadQueue(object):
         index = 0
         if self.data:
             while index < len(self.data):
-                if self.data[index].status not in [4, 2, 5] and self.data[index].processor == '- none -':
+                if self.data[index].status not in [4, 2, 5] and self.data[index].processor == '':
                     if self.checkResources(self.data[index]):
                         self.data[index].status = 2
                         return self.data[index]
@@ -68,7 +68,7 @@ class CThreadQueue(object):
 
     def last(self):
         for x in range(-1, -len(self.data), -1):
-            if self.data[x].status == 3 and self.data[x].processor == '- none -':
+            if self.data[x].status == 3 and self.data[x].processor == '':
                 if self.checkResources(self.data[x]):
                     return self.data[x]
         return None

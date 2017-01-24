@@ -5,8 +5,8 @@ from threading import Event
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import Qt
 
-from config import VERSION
-from lib.resourcedialog import CResourceDialog
+# from config import VERSION
+# from lib.resourcedialog import CResourceDialog
 from lib.tablemodel import CTableModel
 from lib.taskdialog import CTaskDialog
 from lib.threadqueue import CThreadQueue
@@ -24,7 +24,7 @@ class CTaskManager(QtGui.QDialog, Ui_MainDialog):
         self.setupUi(self)
         self.setWindowFlags(Qt.WindowSystemMenuHint | Qt.WindowTitleHint)
         self.setWindowIcon(QtGui.QIcon('favicon.ico'))
-        self.setWindowTitle('TaskManager %s' % VERSION)
+        self.setWindowTitle(u'Диспетчер')
 
         self.tblModel = CTableModel(self)
 
@@ -67,7 +67,7 @@ class CTaskManager(QtGui.QDialog, Ui_MainDialog):
             self.processorsList[x].name = self.processorsList[x].name % x
             self.processorsList[x].start()
 
-        self.resources = CResourceDialog(None)
+        # self.resources = CResourceDialog(None)
 
     @QtCore.pyqtSlot(bool)
     def on_chkPauseAll_toggled(self, checked):
@@ -109,10 +109,10 @@ class CTaskManager(QtGui.QDialog, Ui_MainDialog):
             self.setResources(self.queue.data)  # self.processor.queue.data)
         del dlg
 
-    @QtCore.pyqtSlot()
-    def on_btnResourceTable_clicked(self):
-        self.setResources(self.queue.data)  # self.processor.queue.data)
-        self.resources.exec_()
+    # @QtCore.pyqtSlot()
+    # def on_btnResourceTable_clicked(self):
+    #    self.setResources(self.queue.data)  # self.processor.queue.data)
+    #    self.resources.exec_()
 
     @QtCore.pyqtSlot()
     def on_btnClearFinished_clicked(self):
@@ -123,7 +123,7 @@ class CTaskManager(QtGui.QDialog, Ui_MainDialog):
 
     def setResources(self, process=list()):
         setResources(None, self.lstUsefullResources, process[::-1])
-        setResources(None, self.resources.lstUsefullResources, process[::-1])
+        # setResources(None, self.resources.lstUsefullResources, process[::-1])
 
     def closeEvent(self, event):
         for x in self.processorsList:
