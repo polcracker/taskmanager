@@ -36,7 +36,7 @@ TASK_STATUS = [
 
 RESOURCES_OWNERSHIP_PERCENT = 0.5
 
-ERROR_TIME = 4  # максимульное допустимое время
+ERROR_TIME = 4  # максимальное допустимое время
 
 DEFAULT_TASK_NAME = u'Процесс #%s'
 DEFAULT_PROCESSOR_NAME = u'Ядро #%s'
