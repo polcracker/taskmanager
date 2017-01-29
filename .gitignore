@@ -2,3 +2,5 @@
 .idea/taskmanager.iml
 *.xml
 .idea/vcs.xml
+*.pyc
+.idea/vcs.xml
