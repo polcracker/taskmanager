@@ -1,0 +1,4 @@
+*.xml
+.idea/taskmanager.iml
+*.xml
+.idea/vcs.xml
